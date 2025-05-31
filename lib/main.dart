@@ -3,9 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:music_player/splash_page.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-    // await AudioPlayer.clearAssetCache();
+void main()  { 
   runApp(const MyApp());
 }
 

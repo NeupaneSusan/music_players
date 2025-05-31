@@ -46,8 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
     try {
   
       _controller.nextSong();
+        await _audioPlayer.seek(Duration.zero);
       await _audioPlayer.setAsset(musicList[_controller.currentIndex].path);
-      await _audioPlayer.seek(Duration.zero);
+    
       await _audioPlayer.play();
     
     } catch (e) {
@@ -59,8 +60,9 @@ class _MyHomePageState extends State<MyHomePage> {
     try {
      
       _controller.previousSong();
+       await _audioPlayer.seek(Duration.zero);
       await _audioPlayer.setAsset(musicList[_controller.currentIndex].path);
-      await _audioPlayer.seek(Duration.zero);
+     
       await _audioPlayer.play();
      
     } catch (e) {
@@ -115,18 +117,18 @@ class _MyHomePageState extends State<MyHomePage> {
                         height: 200,
                         width: 200,
                         fit: BoxFit.cover,
-                        alignment: Alignment.topCenter
+                        alignment: Alignment.topCenter,
                       ),
                     ),
                     Column(
                       children: [
                         Text(
                           currentSong.title,
-                          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold)
+                          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                         ),
                         Text(
                           currentSong.artist,
-                          style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.normal)
+                          style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.normal),
                         ),
                       ],
                     ),
