@@ -26,6 +26,7 @@ abstract class _MusicPlayerControllerBase with Store {
 
   @action
   void nextSong() {
+    isPlaying = true;
     if (!isLastSong) {
       currentIndex++;
     } else {
@@ -35,6 +36,7 @@ abstract class _MusicPlayerControllerBase with Store {
 
   @action
   void previousSong() {
+    isPlaying = true;
     if (!isFirstSong) {
       currentIndex--;
     } else {

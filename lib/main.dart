@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:just_audio/just_audio.dart';
-import 'package:music_player/page/home_page.dart';
+
 import 'package:music_player/splash_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-    await AudioPlayer.clearAssetCache();
+    // await AudioPlayer.clearAssetCache();
   runApp(const MyApp());
 }
 
