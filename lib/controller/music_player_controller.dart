@@ -26,21 +26,23 @@ abstract class _MusicPlayerControllerBase with Store {
 
   @action
   void nextSong() {
-    isPlaying = true;
+    isPlaying = false;
     if (!isLastSong) {
       currentIndex++;
     } else {
       currentIndex = 0;
     }
+    isPlaying = true;
   }
 
   @action
   void previousSong() {
-    isPlaying = true;
+     isPlaying = false;
     if (!isFirstSong) {
       currentIndex--;
     } else {
       currentIndex = musicList.length - 1;
     }
+    isPlaying = true;
   }
 }

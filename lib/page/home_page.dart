@@ -44,10 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _playNextSong() async {
     try {
+  
       _controller.nextSong();
       await _audioPlayer.setAsset(musicList[_controller.currentIndex].path);
       await _audioPlayer.seek(Duration.zero);
       await _audioPlayer.play();
+    
     } catch (e) {
       print('Error playing next song: $e');
     }
@@ -55,10 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _playPreviousSong() async {
     try {
+     
       _controller.previousSong();
       await _audioPlayer.setAsset(musicList[_controller.currentIndex].path);
       await _audioPlayer.seek(Duration.zero);
       await _audioPlayer.play();
+     
     } catch (e) {
       print('Error playing previous song: $e');
     }
@@ -155,15 +159,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                     }
                                   },
                                   onChanged: (value) {
+                                    _controller.isPlaying = false;
                                     if (maxDuration > 0) {
                                       final newPosition = value.clamp(0, maxDuration);
                                       _audioPlayer.seek(Duration(milliseconds: newPosition.toInt()));
                                     }
                                   },
                                   onChangeEnd: (value) async {
-                                    if (_isPlaying) {
+                                      _controller.isPlaying = true;
+                                    
                                       await _audioPlayer.play();
-                                    }
+                                     
+                                    
                                   },
                                 );
                               },
